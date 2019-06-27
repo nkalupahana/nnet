@@ -75,6 +75,10 @@ class NeuronLayer {
             return neurons.size();
         }
 
+        string getActivationFunc() {
+            return activationFunc;
+        }
+
         vector<float> forwards(vector<float> inputs) {
             vector<float> ret;
             vector<Neuron*>::iterator nit = neurons.begin();
@@ -103,6 +107,9 @@ class NeuralNet {
         }
 
         float forwards() {
+            //assert(("Only linear final activation supported."), (layers.back()->getActivationFunc() == "linear"));
+            //assert(("Final activation layer only supports one neuron."), layers.back()->getNumberOfNeurons() == 1));
+
             
         }
 };
